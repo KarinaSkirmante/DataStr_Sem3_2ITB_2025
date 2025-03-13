@@ -176,6 +176,39 @@ public class MyHeap <Ttype> {
 	
 	}
 	//print
+	public void print() throws Exception{
+		if(isEmpty())
+		{
+			throw new Exception("heap is empty and it is not possible to print elements");
+		}
+		
+		printHelp(0);
+		
+		
+	}
+	
+	private void printHelp(int currentParentIndex) {
+		System.out.println("P -> " + heap[currentParentIndex]);
+		//noskaidrojam bērnu ideksus
+		int indexLeftChild = currentParentIndex * 2 + 1;
+		int indexRightChild = currentParentIndex * 2 + 2;
+		//ja eksistē kreisais bērns
+		if(indexLeftChild < counter)
+		{
+			System.out.println("Left ch -> " + heap[indexLeftChild] + "(" + heap[currentParentIndex]+ ")");
+			printHelp(indexLeftChild);
+		}
+		//ja eksistē labais bērns
+		if(indexRightChild < counter)
+		{
+			System.out.println("Right ch -> " + heap[indexRightChild] + "(" + heap[currentParentIndex]+ ")");
+			printHelp(indexRightChild);
+		}
+	}
+	
+	
+	
+	
 	//makeempty
 	
 	
