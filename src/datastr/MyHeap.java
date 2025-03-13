@@ -210,6 +210,13 @@ public class MyHeap <Ttype> {
 	
 	
 	//makeempty
+	public void makeEmpty()
+	{
+		counter=0;
+		size = DEFAULT_SIZE;
+		heap = (Ttype[])new Object[size];
+		System.gc();
+	}
 	
 	
 
