@@ -31,6 +31,9 @@ public class MainService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		//izveidot Patient klasi - name, surname, priority + impelemntēt Comparable interfeisu
+		//izveido kaudzi priekš Patient objekteim un ielikt/izņemt pacientus
 
 	}
 
