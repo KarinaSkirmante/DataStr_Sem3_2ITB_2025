@@ -67,8 +67,8 @@ public class MyHeap <Ttype> {
 		
 		heap[counter] = element;
 		counter++;
-		
-		//reheapUp funcijas izsaukums
+		//izsaucam reheapUp no tās sūnas, kur ievietojam jauno elementu
+		reheapUp(counter-1);
 	}
 	
 	
@@ -102,8 +102,22 @@ public class MyHeap <Ttype> {
 		heap[index2] = temp;
 	}
 	//remove - dequeue
+	//TODO
+	public Ttype dequeue() throws Exception{
+		if(isEmpty())
+		{
+			throw new Exception("Heap is empty and it is not possible to retrieve max element");
+		}
+		
+		Ttype maxElement = heap[0];
+		
+		heap[0] = heap[counter-1];
+		counter--;
+		reheapDown(0);
 	
-	//reheapUp
+		return maxElement;
+	
+	}
 	//reheapDown
 	
 	//print
