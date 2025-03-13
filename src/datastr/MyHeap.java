@@ -119,7 +119,62 @@ public class MyHeap <Ttype> {
 	
 	}
 	//reheapDown
+	//TODO
+	private void reheapDown(int currentParentIndex)
+	{
+		int indexLeftChild = currentParentIndex * 2 + 1;
+		int indexRightChild = currentParentIndex * 2 + 2;
+		
+		//  ja eksistē abi bērni:
+		if(indexLeftChild < counter && indexRightChild < counter)
+		{
+			//    ja kreisai bērns ir lielāks par labo -> kreiso bērnu salīdzinam
+			
+			if(((Comparable)(heap[indexLeftChild])).compareTo(heap[indexRightChild]) == 1)
+			{
+				//      ar pasu elementu 
+				
+			if(((Comparable)(heap[indexLeftChild])).compareTo(heap[currentParentIndex]) ==1)
+			{
+				//un pēc nepieciesamības mainām vietām
+				swap(indexLeftChild, currentParentIndex);
+				//un izsaucam rekursīvi reheapDown
+				reheapDown(indexLeftChild);
+			
+			}
+				
+			}
+			else //labais bērns ir lielāks par kreiso
+			{
+				if(((Comparable)(heap[indexRightChild])).compareTo(heap[currentParentIndex]) ==1)
+				{
+					//un pēc nepieciesamības mainām vietām
+					swap(indexRightChild, currentParentIndex);
+					//un izsaucam rekursīvi reheapDown
+					reheapDown(indexRightChild);
+				
+				}
+			}		
+		}
+
 	
+	
+		//ja eksistē tikai kreisais bērns
+		else if(indexLeftChild < counter && indexRightChild >= counter)
+		{
+		//   salīdzinām so kreiso bērnu ar pasu elementu un pēc nepieciešamības mainām vietā
+			if(((Comparable)(heap[indexLeftChild])).compareTo(heap[currentParentIndex]) ==1)
+			{
+				//un pēc nepieciesamības mainām vietām
+				swap(indexLeftChild, currentParentIndex);
+			}
+		}
+	
+		
+	//ja nav bērnu vispār (varbūt var neapstrādat)
+	
+	
+	}
 	//print
 	//makeempty
 	
